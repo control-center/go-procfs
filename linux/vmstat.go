@@ -7,7 +7,7 @@ import (
 	"fmt"
 )
 
-var procVminfoFile = "/proc/vminfo"
+var procVmstatFile = "/proc/vmstat"
 
 type Vmstat struct {
 	NrFreePages                uint
@@ -122,7 +122,7 @@ type Vmstat struct {
 
 func ReadVmstat() (vmstat Vmstat, err error) {
 
-	file, err := os.Open(procLoadavgFile)
+	file, err := os.Open(procVmstatFile)
 	if err != nil {
 		return vmstat, err
 	}
