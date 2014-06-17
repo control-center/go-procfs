@@ -26,7 +26,7 @@ func TestReadLoadavg(t *testing.T) {
 		t.Log(err)
 		t.Fail()
 	}
-	if reflect.DeepEqual(la, testLoadavg) {
+	if !reflect.DeepEqual(la, testLoadavg) {
 		t.Log("test loadavg data did not match")
 		t.Fail()
 	}
