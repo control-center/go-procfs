@@ -3,11 +3,11 @@ package linux
 import (
 	"bufio"
 	"errors"
-	"log"
 	"fmt"
+	"log"
 	"os"
-	"strings"
 	"strconv"
+	"strings"
 )
 
 type Meminfo struct {
@@ -63,7 +63,12 @@ func parseMeminfoLine(line string) (name string, val uint64, err error) {
 		err = fmt.Errorf("meminfo line needs at least two fields: %s", line)
 		return
 	}
+	if len(fields[0]) < 2 {
+		err = fmt.Errorf("meminfo field is too short: %s", fields[0])
+		return
+	}
 	name = fields[0]
+	name = name[0 : len(name)-1] // truncate last character
 	if val, err = strconv.ParseUint(fields[1], 10, 64); err != nil {
 		err = errors.New("could not parse stat line: " + err.Error())
 		return
