@@ -1,10 +1,10 @@
 package linux
 
 import (
-	"os"
 	"bufio"
-	"strings"
 	"fmt"
+	"os"
+	"strings"
 )
 
 var procVmstatFile = "/proc/vmstat"
