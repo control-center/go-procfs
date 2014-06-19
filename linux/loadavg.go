@@ -21,16 +21,12 @@ type Loadavg struct {
 
 func readFloat32(str string, val *float32) error {
 	lval, err := strconv.ParseFloat(str, 32)
-	if err != nil {
-		*val = float32(lval)
-	}
+	*val = float32(lval)
 	return err
 }
 func readUint(str string, val *uint) error {
 	lval, err := strconv.ParseUint(str, 10, 32)
-	if err != nil {
-		*val = uint(lval)
-	}
+	*val = uint(lval)
 	return err
 }
 
