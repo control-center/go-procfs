@@ -13,6 +13,7 @@ import (
 type Meminfo struct {
 	MemTotal          uint64
 	MemFree           uint64
+	MemAvailable      uint64
 	Buffers           uint64
 	Cached            uint64
 	SwapCached        uint64
@@ -105,6 +106,8 @@ func ReadMeminfo() (meminfo Meminfo, err error) {
 			meminfo.MemTotal = val
 		case "MemFree":
 			meminfo.MemFree = val
+		case "MemAvailable":
+			meminfo.MemAvailable = val
 		case "Buffers":
 			meminfo.Buffers = val
 		case "Cached":
@@ -193,3 +196,4 @@ func ReadMeminfo() (meminfo Meminfo, err error) {
 	}
 	return
 }
+
