@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"errors"
 	"fmt"
-	"log"
 	"os"
 	"strconv"
 	"strings"
@@ -53,6 +52,7 @@ type Meminfo struct {
 	Hugepagesize      uint64
 	DirectMap4k       uint64
 	DirectMap2M       uint64
+	DirectMap1G       uint64
 }
 
 var procMeminfo = "/proc/meminfo"
@@ -184,8 +184,9 @@ func ReadMeminfo() (meminfo Meminfo, err error) {
 			meminfo.DirectMap4k = val
 		case "DirectMap2M":
 			meminfo.DirectMap2M = val
+		case "DirectMap1G":
+			meminfo.DirectMap1G = val
 		default:
-			log.Printf("ignoring unknown meminfo field %s", name)
 		}
 	}
 	return
