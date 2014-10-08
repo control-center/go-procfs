@@ -191,7 +191,6 @@ func ReadMeminfo() (meminfo Meminfo, err error) {
 		case "DirectMap1G":
 			meminfo.DirectMap1G = val
 		default:
-			log.Printf("ignoring unknown meminfo field %s", name)
 		}
 	}
 	return
