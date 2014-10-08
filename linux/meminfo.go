@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"errors"
 	"fmt"
-	"log"
 	"os"
 	"strconv"
 	"strings"
@@ -195,4 +194,3 @@ func ReadMeminfo() (meminfo Meminfo, err error) {
 	}
 	return
 }
-
